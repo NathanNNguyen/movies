@@ -1,0 +1,163 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'montserrat', sans-serif;
+  background: linear-gradient(to right, #24c6dc, #514a9d);
+}
+
+header {
+	padding: 50px 15px 0px;
+
+	h1 {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 48px;
+		font-weight: 500;
+		text-align: center;
+	}
+}
+
+main {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 15px;
+}
+
+.searchbox {
+	display: block;
+	width: 100%;
+	padding: 15px;
+
+	border: none;
+	outline: none;
+	background: none;
+
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 8px;
+
+	color: #53565A;
+	font-size: 20px;
+	font-weight: 300;
+
+	transition: 0.4s ease-out;
+
+	&:focus {
+		box-shadow: 0px 0px 10px 2px #24c6dc;
+	}
+}
+
+.results {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -15px;
+
+	.result {
+		width: 33.333%;
+		min-width: 250px;
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		cursor: pointer;
+
+		&:hover h3 {
+			background: rgba(255, 255, 255, 0.8);
+			color: rgba(0, 0, 0, 0.9);
+		}
+
+		h3 {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 20px;
+			font-weight: 600;
+			padding: 10px;
+			background: rgba(0, 0, 0, 0.8);
+			flex: 1 1 100%;
+			transition: 0.4s ease-out;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(to right, #24c6dc, #514a9d);
+
+	overflow-y: scroll;
+
+	.content {
+		display: block;
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 25px;
+	
+		color: #FFF;
+
+		h2 {
+			font-size: 28px;
+			font-weight: 600;
+
+			span {
+				font-weight: 300;
+				font-size: 20px;
+			}
+		}
+
+		.rating {
+			margin-bottom: 30px;
+		}
+
+		.plot {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0px -15px 30px;
+
+			img {
+				flex: 1 1 50%;
+				max-width: 300px;
+				padding: 0px 15px;
+			}
+
+			p {
+				flex: 1 1 50%;
+				padding: 15px;
+			}
+		}
+
+		.close {
+			display: inline-block;
+			padding: 15px 30px;
+			font-size: 18px;
+			font-weight: 700;
+		
+			background: #514a9d;
+			color: #FFF;
+			border-radius: 8px;
+			border: none;
+			outline: none;
+			appearance: none;
+			cursor: pointer;
+		
+			transition: 0.4s ease-out;
+
+			&:hover {
+				background: #24c6dc;
+			}
+		}
+	}
+}
