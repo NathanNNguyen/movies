@@ -37,8 +37,6 @@ function App() {
     axios(api + "&i=" + id).then(({ data }) => {
       let result = data;
 
-      console.log(result);
-
       setState(prevState => {
         return { ...prevState, selected: result }
       });
@@ -54,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Movies</h1>
+        <h1>Name a movie</h1>
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
