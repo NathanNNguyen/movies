@@ -1,4 +1,4 @@
-# Search your favorite movie
+# Learn about any movie
 
 <a href='https://nn-movies.now.sh/' target="_blank" rel="noopener noreferrer">Live</a>
 
