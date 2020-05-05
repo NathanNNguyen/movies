@@ -11,11 +11,11 @@ function App() {
     results: [],
     selected: {}
   });
-  const apiurl = "http://www.omdbapi.com/?apikey=dfe6d885";
+  const api = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}`;
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.s).then(({ data }) => {
+      axios(api + "&s=" + state.s).then(({ data }) => {
         let results = data.Search;
 
         setState(prevState => {
@@ -34,7 +34,7 @@ function App() {
   }
 
   const openPopup = id => {
-    axios(apiurl + "&i=" + id).then(({ data }) => {
+    axios(api + "&i=" + id).then(({ data }) => {
       let result = data;
 
       console.log(result);
