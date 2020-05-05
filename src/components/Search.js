@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Search({ handleInput, search }) {
+function Search({ handleInput, search, submit }) {
   return (
     <section className="searchbox-wrap">
+      <span></span>
+      <span></span>
       <input
         type="text"
         placeholder="Search for a movie..."
@@ -10,8 +12,16 @@ function Search({ handleInput, search }) {
         onChange={handleInput}
         onKeyPress={search}
       />
+      <span></span>
+      <span></span>
+      <span></span>
+
+      {/* <button className='btn' onClick={submit}>
+        Search
+      </button> */}
     </section>
   )
 }
 
 export default Search
+
