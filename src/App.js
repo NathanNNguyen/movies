@@ -52,7 +52,17 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Name a movie</h1>
+        <h1 className='wavy'>
+          <span style={{ animationDelay: '.1s' }}>M</span>
+          <span style={{ animationDelay: '.2s' }}>o</span>
+          <span style={{ animationDelay: '.3s' }}>v</span>
+          <span style={{ animationDelay: '.4s' }}>i</span>
+          <span style={{ animationDelay: '.5s' }}>e</span>
+          <span style={{ animationDelay: '.6s' }}>s</span>
+          <span style={{ animationDelay: '.7s' }}>.</span>
+          <span style={{ animationDelay: '.8s' }}>.</span>
+          <span style={{ animationDelay: '.9s' }}>.</span>
+        </h1>
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />

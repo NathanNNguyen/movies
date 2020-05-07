@@ -7,7 +7,7 @@ function Search({ handleInput, search, submit }) {
       <span></span>
       <input
         type="text"
-        placeholder="Movies..."
+        placeholder="Search for movies"
         className="searchbox"
         onChange={handleInput}
         onKeyPress={search}
