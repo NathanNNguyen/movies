@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 import Search from './components/Search'
 import Results from './components/Results'
 import Popup from './components/Popup'
+import { updateText, closePopup } from './store/actions/action';
 
-function App() {
+function App(props) {
+  // console.log(props.s)
+
   const [state, setState] = useState({
     s: "",
     results: [],
@@ -65,7 +69,11 @@ function App() {
         </h1>
       </header>
       <main>
-        <Search handleInput={handleInput} search={search} />
+        <Search
+          handleInput={handleInput}
+          search={search}
+        // handleInput={props.updateText}
+        />
 
         <Results results={state.results} openPopup={openPopup} />
 
@@ -75,4 +83,16 @@ function App() {
   );
 }
 
-export default App
+// export default App
+const mapPropsToState = state => {
+  return {
+    s: state.reducer.s,
+    results: state.reducer.results,
+    selected: state.reducer.selected
+  }
+}
+
+export default connect(mapPropsToState, {
+  updateText,
+  closePopup
+})(App)
