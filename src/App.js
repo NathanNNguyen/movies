@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import Search from './components/Search'
 import Results from './components/Results'
 import Popup from './components/Popup'
+import { updateText, closePopup } from './store/actions/action';
 
 function App(props) {
-  console.log(props)
+  // console.log(props.s)
 
   const [state, setState] = useState({
     s: "",
@@ -68,7 +69,11 @@ function App(props) {
         </h1>
       </header>
       <main>
-        <Search handleInput={handleInput} search={search} />
+        <Search
+          handleInput={handleInput}
+          search={search}
+        // handleInput={props.updateText}
+        />
 
         <Results results={state.results} openPopup={openPopup} />
 
@@ -87,4 +92,7 @@ const mapPropsToState = state => {
   }
 }
 
-export default connect(mapPropsToState, {})(App)
+export default connect(mapPropsToState, {
+  updateText,
+  closePopup
+})(App)
