@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 import Search from './components/Search'
 import Results from './components/Results'
 import Popup from './components/Popup'
 
-function App() {
+function App(props) {
+  console.log(props)
+
   const [state, setState] = useState({
     s: "",
     results: [],
@@ -75,4 +78,13 @@ function App() {
   );
 }
 
-export default App
+// export default App
+const mapPropsToState = state => {
+  return {
+    s: state.reducer.s,
+    results: state.reducer.results,
+    selected: state.reducer.selected
+  }
+}
+
+export default connect(mapPropsToState, {})(App)

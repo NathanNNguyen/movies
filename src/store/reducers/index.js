@@ -1,6 +1,6 @@
-import { combimeReducers } from 'redux';
+import { combineReducers } from 'redux';
 import { reducer } from './reducer';
 
-export default combimeReducers({
+export default combineReducers({
   reducer
 })
