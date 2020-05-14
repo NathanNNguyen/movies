@@ -1,7 +1,10 @@
 # Movies Database
 
 A simple project built with React/Redux
+
 <a href='https://nn-movies.now.sh/' target="_blank" rel="noopener noreferrer">Live</a>
+
+![Live](https://nn-movies.now.sh/)
 
 ## Available Scripts
 
