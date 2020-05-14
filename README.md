@@ -2,9 +2,7 @@
 
 A simple project built with React/Redux
 
-<a href='https://nn-movies.now.sh/' target="_blank" rel="noopener noreferrer">Live</a>
-
-![Live](https://img.stackshare.io/service/7374/react-redux.png)(https://nn-movies.now.sh/)
+![Live](https://img.stackshare.io/service/7374/react-redux.png)https://nn-movies.now.sh/
 
 ## Available Scripts
 
