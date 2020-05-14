@@ -1,5 +1,6 @@
-# Learn about any movie
+# Movies Database
 
+A simple project built with React/Redux
 <a href='https://nn-movies.now.sh/' target="_blank" rel="noopener noreferrer">Live</a>
 
 ## Available Scripts
