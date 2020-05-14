@@ -1,57 +1,12 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import Search from './components/Search'
 import Results from './components/Results'
 import Popup from './components/Popup'
-import { updateText, closePopup } from './store/actions/action';
+import { updateText, closePopup, search, openPopup } from './store/actions/action';
 
 function App(props) {
-  // console.log(props.s)
-
-  const [state, setState] = useState({
-    s: "",
-    results: [],
-    selected: {}
-  });
-  const api = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}`;
-
-  const search = (e) => {
-    if (e.key === "Enter") {
-      axios(api + "&s=" + state.s).then(({ data }) => {
-        let results = data.Search;
-
-        setState(prevState => {
-          return { ...prevState, results: results }
-        })
-      });
-    }
-  }
-
-  const handleInput = (e) => {
-    let s = e.target.value;
-
-    setState(prevState => {
-      return { ...prevState, s: s }
-    });
-  }
-
-  const openPopup = id => {
-    axios(api + "&i=" + id).then(({ data }) => {
-      let result = data;
-
-      setState(prevState => {
-        return { ...prevState, selected: result }
-      });
-    });
-  }
-
-  const closePopup = () => {
-    setState(prevState => {
-      return { ...prevState, selected: {} }
-    });
-  }
 
   return (
     <div className="App">
@@ -70,21 +25,20 @@ function App(props) {
       </header>
       <main>
         <Search
-          handleInput={handleInput}
-          search={search}
-        // handleInput={props.updateText}
+          search={(e) => props.search(e, props.s)}
+          handleInput={props.updateText}
         />
 
-        <Results results={state.results} openPopup={openPopup} />
+        <Results results={props.results} openPopup={(id) => props.openPopup(id)} />
 
-        {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
+        {(typeof props.selected.Title != "undefined") ? <Popup selected={props.selected} closePopup={props.closePopup} /> : false}
       </main>
     </div>
   );
 }
 
 // export default App
-const mapPropsToState = state => {
+const mapStateToProps = state => {
   return {
     s: state.reducer.s,
     results: state.reducer.results,
@@ -92,7 +46,9 @@ const mapPropsToState = state => {
   }
 }
 
-export default connect(mapPropsToState, {
+export default connect(mapStateToProps, {
   updateText,
-  closePopup
+  closePopup,
+  search,
+  openPopup
 })(App)
