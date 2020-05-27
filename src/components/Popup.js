@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { closePopup } from '../store/actions/action';
 
 function Popup({ selected, closePopup }) {
   return (
@@ -22,4 +24,12 @@ function Popup({ selected, closePopup }) {
   )
 }
 
-export default Popup
+const mapStateToProps = state => {
+  return {
+    selected: state.reducer.selected
+  }
+}
+
+export default connect(mapStateToProps, {
+  closePopup
+})(Popup)

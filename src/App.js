@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Search from './components/Search'
 import Results from './components/Results'
 import Popup from './components/Popup'
-import { updateText, closePopup, search, openPopup } from './store/actions/action';
+import { closePopup, openPopup } from './store/actions/action';
 
 function App(props) {
 
@@ -24,14 +24,11 @@ function App(props) {
         </h1>
       </header>
       <main>
-        <Search
-          search={(e) => props.search(e, props.s)}
-          handleInput={props.updateText}
-        />
+        <Search />
 
         <Results results={props.results} openPopup={(id) => props.openPopup(id)} />
 
-        {(typeof props.selected.Title != "undefined") ? <Popup selected={props.selected} closePopup={props.closePopup} /> : false}
+        {(typeof props.selected.Title != "undefined") ? <Popup /> : false}
       </main>
     </div>
   );
@@ -40,15 +37,12 @@ function App(props) {
 // export default App
 const mapStateToProps = state => {
   return {
-    s: state.reducer.s,
     results: state.reducer.results,
     selected: state.reducer.selected
   }
 }
 
 export default connect(mapStateToProps, {
-  updateText,
   closePopup,
-  search,
   openPopup
 })(App)
