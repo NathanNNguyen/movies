@@ -15,7 +15,8 @@ export const reducer = (state = initialState, action) => {
     case 'SEARCH':
       return {
         ...state,
-        results: action.payload
+        results: action.payload,
+        selected: {}
       }
 
     case 'OPEN':
